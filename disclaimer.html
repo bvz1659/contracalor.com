@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Accuracy Disclaimer — Contra Calor</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f7f3ee; color: #1a1a1a; }
+    header { background: linear-gradient(135deg, #1e3d1a, #6b4226); padding: 32px 24px 24px; text-align: center; }
+    header a { text-decoration: none; }
+    .logo { font-size: 28px; font-weight: 800; color: white; letter-spacing: -0.5px; }
+    .logo span { margin-right: 8px; }
+    .tagline { font-size: 13px; color: rgba(255,255,255,0.7); margin-top: 4px; }
+    nav { background: #1e3d1a; display: flex; justify-content: center; gap: 0; border-top: 1px solid rgba(255,255,255,0.1); }
+    nav a { color: rgba(255,255,255,0.75); text-decoration: none; padding: 12px 20px; font-size: 13px; font-weight: 600; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: white; background: rgba(255,255,255,0.1); }
+    .container { max-width: 760px; margin: 0 auto; padding: 40px 24px 80px; }
+    .doc-header { margin-bottom: 32px; padding-bottom: 20px; border-bottom: 2px solid #1e3d1a; }
+    .doc-header h1 { font-size: 28px; font-weight: 800; color: #1e3d1a; margin-bottom: 6px; }
+    .doc-header .effective { font-size: 13px; color: #6b5a4e; font-style: italic; }
+    h2 { font-size: 18px; font-weight: 700; color: #1e3d1a; margin: 32px 0 10px; }
+    h3 { font-size: 15px; font-weight: 700; color: #3a2a1a; margin: 20px 0 8px; }
+    p { font-size: 15px; line-height: 1.7; color: #2a2a2a; margin-bottom: 12px; }
+    ul { margin: 8px 0 12px 24px; }
+    ul li { font-size: 15px; line-height: 1.7; color: #2a2a2a; margin-bottom: 6px; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+    th { background: #1e3d1a; color: white; padding: 10px 12px; text-align: center; font-weight: 600; }
+    td { padding: 10px 12px; text-align: center; border-bottom: 1px solid #e0d8cf; }
+    tr:nth-child(even) td { background: #f2f7f1; }
+    .good { color: #1e6b1e; font-weight: 700; }
+    .warn { color: #c0392b; font-weight: 700; }
+    .ok { color: #c8922a; font-weight: 700; }
+    .tip-box { background: #eaf2e8; border-left: 4px solid #1e3d1a; border-radius: 0 8px 8px 0; padding: 16px 20px; margin: 20px 0; }
+    .tip-box p { margin-bottom: 0; }
+    .contact-box { background: white; border: 1px solid #e0d8cf; border-radius: 12px; padding: 20px 24px; margin-top: 32px; }
+    .contact-box p { margin-bottom: 4px; }
+    .contact-box a { color: #1e3d1a; font-weight: 600; }
+    footer { text-align: center; padding: 24px; font-size: 12px; color: #8a7a6a; border-top: 1px solid #e0d8cf; margin-top: 40px; }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html">
+      <div class="logo"><span>🍇</span>Contra Calor</div>
+      <div class="tagline">Viticulture GDD Tracker</div>
+    </a>
+  </header>
+  <nav>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="terms.html">Terms of Service</a>
+    <a href="disclaimer.html" class="active">Data Accuracy</a>
+  </nav>
+  <div class="container">
+    <div class="doc-header">
+      <h1>Data Accuracy Disclaimer</h1>
+      <div class="effective">Effective Date: April 3, 2026</div>
+    </div>
+
+    <h2>Overview</h2>
+    <p>Contra Calor ("the App") provides Growing Degree Day (GDD) calculations for viticulture professionals. This disclaimer explains the data source, validation methodology, known limitations, and intended use of the weather data provided by the App.</p>
+
+    <h2>Data Source</h2>
+    <p>The App retrieves historical daily temperature data (maximum and minimum) from the Visual Crossing Weather API using a station-priority ("source=obs") methodology. This means Visual Crossing prioritises data from real, physical weather observation stations closest to your vineyard location, rather than relying solely on interpolated or modelled grid data.</p>
+    <p>Visual Crossing draws from a global network of government and private weather stations, including NOAA, ASOS, CWOP, and Weather Underground personal weather stations (PWS), blending sources to maximise coverage and accuracy at your specific coordinates.</p>
+
+    <h2>Independent Validation</h2>
+    <p>Contra Calor has been independently validated against CIMIS (California Irrigation Management Information System) station data and personal weather station (PWS) ground truth across three representative California wine regions. All validation uses the standard viticulture GDD formula: base 50°F, Apr 1 – Oct 31, no upper threshold.</p>
+
+    <h3>Napa Valley Floor (38.3701°N, 122.2998°W)</h3>
+    <p>Compared against the CIMIS Oakville station (elev. 190 ft), one of the most established agricultural weather stations in California viticulture.</p>
+    <table>
+      <tr><th>Vintage</th><th>CIMIS Oakville</th><th>Contra Calor</th><th>Difference</th><th>Variance</th></tr>
+      <tr><td>2011</td><td>2,876</td><td>2,803</td><td>−73</td><td class="good">−2.5% ✓</td></tr>
+      <tr><td>2015</td><td>3,546</td><td>3,298</td><td>−248</td><td class="good">−7.0% ✓</td></tr>
+      <tr><td>2021</td><td>3,032</td><td>3,086</td><td>+54</td><td class="good">+1.8% ✓</td></tr>
+    </table>
+    <p>Average variance vs CIMIS Oakville: 3.8%. Results correctly rank 2011 as the coolest vintage (La Niña year), 2015 as the warmest (peak drought), and 2021 as a balanced mid-range vintage — consistent with documented Napa Valley vintage records.</p>
+
+    <h3>Sierra Foothills / Placerville (38.73°N, 120.80°W)</h3>
+    <p>Compared against a Weather Underground personal weather station near Placerville, CA — the closest available ground truth for this high-elevation site. Raw daily max/min data was used to independently calculate GDD using the identical formula.</p>
+    <table>
+      <tr><th>Vintage</th><th>PWS (Placerville)</th><th>Contra Calor</th><th>Difference</th><th>Variance</th></tr>
+      <tr><td>2021</td><td>4,346</td><td>4,413</td><td>+67</td><td class="good">+1.5% ✓</td></tr>
+    </table>
+    <p>This is the strongest single-point validation result: 1.5% variance against actual daily temperature records from a personal weather station at the same coordinates.</p>
+
+    <h3>Sonoma / Bennett Valley (38.4405°N, 122.6767°W)</h3>
+    <p>Compared against the CIMIS Sonoma/Bennett Valley station. This marine-influenced valley site shows good accuracy in normal and warm vintages, with greater divergence in extreme cold/wet years.</p>
+    <table>
+      <tr><th>Vintage</th><th>CIMIS Bennett Valley</th><th>Contra Calor</th><th>Difference</th><th>Variance</th></tr>
+      <tr><td>2011</td><td>1,910</td><td>2,664</td><td>+754</td><td class="warn">+39.5% ⚠</td></tr>
+      <tr><td>2015</td><td>3,083</td><td>3,195</td><td>+112</td><td class="good">+3.6% ✓</td></tr>
+      <tr><td>2021</td><td>2,676</td><td>2,861</td><td>+185</td><td class="ok">+6.9% ✓</td></tr>
+    </table>
+    <p>The 2011 divergence at this site warrants a note: the CIMIS figure of 1,910 GDD (Region I) is unusually low for a Sonoma Valley location and may reflect localised cold air pooling or data quality issues at that specific station during the extreme La Niña event. The 2015 and 2021 results — more representative of typical growing seasons — show 3.6% and 6.9% variance respectively.</p>
+
+    <h2>Known Limitations</h2>
+
+    <h3>1. Spatial Resolution and Microclimate</h3>
+    <p>Visual Crossing interpolates between available weather stations. In areas with sparse station coverage — particularly remote high-elevation sites, narrow coastal valleys, or areas with complex terrain — the interpolated temperature may not fully capture your vineyard's specific microclimate. Cold air drainage, aspect, proximity to water bodies, and urban heat effects are not individually modelled.</p>
+
+    <h3>2. Station Coverage Variability</h3>
+    <p>Station density varies significantly by region. Napa Valley, with its dense network of CIMIS, NOAA, and private weather stations, benefits from excellent spatial coverage. Remote areas of the Sierra Foothills or Southern Hemisphere wine regions may rely on more widely spaced stations with greater interpolation uncertainty.</p>
+
+    <h3>3. Extreme Weather Events</h3>
+    <p>In years with extreme La Niña cooling, atmospheric rivers, or unusual heat events, variance between the App's output and on-site measurements may be higher than in typical years. The 2011 vintage, an extreme La Niña year, produced the largest observed variance across all test sites.</p>
+
+    <h3>4. No Real-Time Data</h3>
+    <p>The App does not use real-time or forecast weather data. GDD calculations for the current season reflect data through the most recently available station observations, typically within 1–3 days of the current date.</p>
+
+    <h3>5. Formula Consistency</h3>
+    <p>Contra Calor uses the standard Winkler GDD formula: base 50°F, daily average temperature (max + min) ÷ 2, Apr 1 – Oct 31, no upper threshold. This is consistent with published CIMIS, UC Davis, and Napa Valley Grapegrowers reporting. When comparing results to other sources, ensure the same formula, base temperature, and date range are used.</p>
+
+    <h2>Intended Use</h2>
+    <p>Contra Calor is designed as a decision-support tool for viticulture professionals and vineyard managers. It provides directional GDD accumulation data to assist with phenological tracking, vintage comparison, harvest planning, and regional benchmarking. It is not intended to replace on-site weather stations, agronomic consultation, or certified meteorological data for commercial decisions.</p>
+
+    <div class="tip-box">
+      <p><strong>Pro Tip: Calibration.</strong> Users with access to an on-site weather station or personal weather station (PWS) are encouraged to compare their local readings against the App's output for at least one full season. If a consistent offset is identified, applying a manual correction factor will improve accuracy for your specific site. A per-vineyard calibration feature is planned for a future Pro update.</p>
+    </div>
+
+    <h2>No Warranty</h2>
+    <p>Contra Calor and its data outputs are provided "as is" without warranty of any kind, express or implied. Sybrand van Zyl makes no representations regarding the accuracy, completeness, or fitness for purpose of any data displayed in the App. Use of this App for commercial agricultural decisions is at the user's own risk.</p>
+
+    <div class="contact-box">
+      <p><strong>Data accuracy questions:</strong> <a href="mailto:support@contracalor.com">support@contracalor.com</a></p>
+      <p><strong>Website:</strong> <a href="https://contracalor.com">contracalor.com</a></p>
+    </div>
+  </div>
+  <footer>© 2026 Sybrand van Zyl — Contra Calor</footer>
+</body>
+</html>
