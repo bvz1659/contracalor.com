@@ -18,13 +18,14 @@
     .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
     .nav-cta { background: var(--gold) !important; color: var(--dark) !important; padding: 10px 20px !important; border-radius: 8px !important; font-weight: 600 !important; }
-    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .nav-hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
-    .nav-mobile { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(13,31,11,0.98); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 200; position: relative; }
+    .nav-hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: all 0.3s; }
+    .nav-mobile { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #0a1a08; z-index: 150; flex-direction: column; align-items: center; justify-content: center; gap: 28px; padding: 40px 24px; }
     .nav-mobile.open { display: flex; }
-    .nav-mobile a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 20px; font-weight: 500; }
-    .nav-mobile a:hover { color: var(--gold); }
-    .nav-mobile .mobile-cta { background: var(--gold); color: var(--dark); padding: 14px 28px; border-radius: 10px; font-weight: 700; margin-top: 8px; }
+    .nav-mobile .mobile-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: white; font-size: 28px; cursor: pointer; line-height: 1; }
+    .nav-mobile a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 22px; font-weight: 500; transition: color 0.2s; font-family: 'DM Sans', sans-serif; }
+    .nav-mobile a:hover { color: #c8922a; }
+    .nav-mobile .mobile-cta { background: #c8922a; color: #0d1f0b; padding: 14px 32px; border-radius: 10px; font-weight: 700; margin-top: 8px; font-size: 18px; }
     @media (max-width: 768px) { nav { padding: 16px 24px; } .nav-links { display: none; } .nav-hamburger { display: flex; } }
     .page-hero { padding: 140px 48px 70px; background: radial-gradient(ellipse at 50% 0%, rgba(30,61,26,0.4) 0%, transparent 60%), var(--dark); border-bottom: 1px solid rgba(255,255,255,0.06); text-align: center; }
     .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.3); border-radius: 100px; padding: 6px 16px; font-size: 13px; color: var(--gold); font-weight: 500; margin-bottom: 20px; }
@@ -72,10 +73,11 @@
       <a href="index.html#pricing">Pricing</a>
       <a href="https://testflight.apple.com/join/YDTMBthz" class="nav-cta">Beta Access</a>
     </div>
-    <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-mobile" id="mobileMenu">
+      <button class="mobile-close" onclick="toggleMenu()" aria-label="Close">✕</button>
       <a href="index.html#features" onclick="toggleMenu()">Features</a>
       <a href="index.html#accuracy" onclick="toggleMenu()">Accuracy</a>
       <a href="how-it-works.html" onclick="toggleMenu()">How It Works</a>
@@ -191,7 +193,7 @@
     <div class="footer-copy">© 2026 Sybrand van Zyl — Contra Calor · Napa Valley, CA</div>
   </footer>
 
-  <script>
+    <script>
     function toggleMenu() {
       document.getElementById('mobileMenu').classList.toggle('open');
     }
